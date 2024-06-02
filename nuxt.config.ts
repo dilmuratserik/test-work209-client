@@ -1,5 +1,7 @@
 // Doc: https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  buildModules: ['@pinia/nuxt'],
+  css: ['~/assets/scss/main.scss'],
   modules: [
     '@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@pinia/nuxt', '@nuxt/image-edge',
     'nuxt-icon'],

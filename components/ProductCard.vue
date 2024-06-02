@@ -1,19 +1,49 @@
-<script lang="ts" setup>
-import { IProductItem } from '~~/types'
+<script setup lang="ts">
+import { defineProps } from 'vue'
+import { IProductItem } from '@/types'
 
-defineProps<{products: IProductItem[]}>()
+const props = defineProps<{ products: IProductItem[] }>()
 </script>
+
 <template>
-  <div v-for="product in products" :key="product.id" class="group">
-    <div class="aspect-w-3 aspect-h-3 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-      <NuxtImg provider="imgix" preset="main" :src="product.imageSrc" :alt="product.imageAlt" class="h-full w-full object-cover object-center group-hover:opacity-75" />
+    <div v-for="product in props.products" :key="product.id" class="product-card">
+      <h3 class="product-card__name">{{ product.name }}</h3>
+      <p class="product-card__price">${{ product.price.toFixed(2) }}</p>
+      <slot :product="product"></slot>
     </div>
-    <h3 class="mt-4 text-sm text-gray-700">
-      {{ product.name }}
-    </h3>
-    <p class="mt-1 text-lg font-medium text-gray-900">
-      {{ product.price }}
-    </p>
-    <slot :item="product" />
-  </div>
 </template>
+<style lang="scss" scoped>
+.product-card {
+  &__image {
+    @include flex-center;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 200px;
+  }
+
+  &__info {
+    padding: 10px;
+  }
+
+  &__name {
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  &__price {
+    color: $secondary-color;
+    margin: 5px 0;
+  }
+
+  &__button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+</style>
