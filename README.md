@@ -50,3 +50,8 @@ npm run build
 ```bash
 npm run preview
 ```
+<img width="1362" alt="image" src="https://github.com/dilmuratserik/test-work209-client/assets/62326731/b1e7909c-722a-4254-92ab-40419480a9d8">
+![image](https://github.com/dilmuratserik/test-work209-client/assets/62326731/7747d932-ee7b-42c8-a35d-5095eca4c316)
+<img width="1458" alt="image" src="https://github.com/dilmuratserik/test-work209-client/assets/62326731/dc69cd35-f2f6-44d6-a8d3-98271b9f4e18">
+
+
