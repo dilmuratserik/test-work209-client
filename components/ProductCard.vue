@@ -2,17 +2,24 @@
 import { defineProps } from 'vue'
 import { IProductItem } from '@/types'
 
-const props = defineProps<{ products: IProductItem[] }>()
+const props = defineProps<{ product: IProductItem }>()
 </script>
 
 <template>
-    <div v-for="product in props.products" :key="product.id" class="product-card">
-      <h3 class="product-card__name">{{ product.name }}</h3>
-      <p class="product-card__price">${{ product.price.toFixed(2) }}</p>
-      <slot :product="product"></slot>
-    </div>
+  <div class="product-card">
+    <h3 class="product-card__name">
+      {{ props.product.name }}
+    </h3>
+    <p class="product-card__price">
+      ${{ props.product.price.toFixed(2) }}
+    </p>
+    <slot :product="props.product" />
+  </div>
 </template>
 <style lang="scss" scoped>
+@import "@/assets/scss/mixins";
+@import "@/assets/scss/variables";
+@import "@/assets/scss/main";
 .product-card {
   &__image {
     @include flex-center;

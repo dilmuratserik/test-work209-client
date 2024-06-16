@@ -1,7 +1,6 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { IProductItem } from '@/types'
-
 export const useProductStore = defineStore('productStore', {
   state: () => {
     return {
