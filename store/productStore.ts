@@ -1,4 +1,3 @@
-// store/productStore.ts
 import { ref } from 'vue'
 import axios from 'axios'
 import { IProductItem } from '@/types'
@@ -17,8 +16,8 @@ export const useProductStore = defineStore('productStore', {
         const response = await axios.get('http://127.0.0.1:8001/api/products')
         this.products = response.data.data.map(item => ({
           id: item.id,
-          name: item.name,
-          price: parseFloat(item.price)
+          name: item.attributes.name,
+          price: parseFloat(item.attributes.price)
         }))
       } catch (error) {
         console.error('Error fetching products:', error)
